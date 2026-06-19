@@ -1,8 +1,14 @@
-import { GALLERY_PLACEHOLDER_COUNT, INSTAGRAM_LINK } from '../config';
+import { GALLERY_IMAGES, INSTAGRAM_LINK } from '../config';
 import './Gallery.css';
 
 export default function Gallery() {
-  const items = Array.from({ length: GALLERY_PLACEHOLDER_COUNT });
+  const items = Array.from({ length: GALLERY_IMAGES });
+  const images = Object.values(
+  import.meta.glob('../img/*.{jpg,jpeg,png,webp}', {
+    eager: true,
+    import: 'default',
+  })
+);
 
   return (
     <section className="gallery" id="galeria">
@@ -20,10 +26,14 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div className="gallery__grid">
-          {items.map((_, i) => (
-            <div className="gallery__item" key={i}>
-              <span>Foto {i + 1}</span>
+         <div className="gallery__grid">
+          {images.map((src, index) => (
+            <div className="gallery__item" key={index}>
+              <img
+                src={src}
+                alt={`Galeria ${index + 1}`}
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
