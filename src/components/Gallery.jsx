@@ -2,14 +2,6 @@ import { GALLERY_IMAGES, INSTAGRAM_LINK } from '../config';
 import './Gallery.css';
 
 export default function Gallery() {
-  const items = Array.from({ length: GALLERY_IMAGES });
-  const images = Object.values(
-  import.meta.glob('../img/*.{jpg,jpeg,png,webp}', {
-    eager: true,
-    import: 'default',
-  })
-);
-
   return (
     <section className="gallery" id="galeria">
       <div className="container">
@@ -25,15 +17,14 @@ export default function Gallery() {
             Ver mais no Instagram
           </a>
         </div>
-
-         <div className="gallery__grid">
-          {images.map((src, index) => (
+        <div className="gallery__grid">
+          {GALLERY_IMAGES.map((item, index) => (
             <div className="gallery__item" key={index}>
-              <img
-                src={src}
-                alt={`Galeria ${index + 1}`}
-                loading="lazy"
-              />
+              {item.img ? (
+                <img src={item.img} alt={item.alt} loading="lazy" />
+              ) : (
+                <div className="gallery__placeholder">Foto em breve</div>
+              )}
             </div>
           ))}
         </div>
