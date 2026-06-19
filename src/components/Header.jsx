@@ -4,7 +4,8 @@ import './Header.css';
 export default function Header() {
   return (
     <header className="header">
-      <div className="container header__inner">
+      <div className="container">
+      <div className="header__inner">
         <a href="#top" className="header__brand">
           <span className="header__brand-mark">D</span>
           <span className="header__brand-name">
@@ -26,6 +27,7 @@ export default function Header() {
         >
           Falar no WhatsApp
         </a>
+      </div>
       </div>
     </header>
   );

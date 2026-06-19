@@ -32,10 +32,13 @@ export default function About() {
         </div>
 
         <ul className="about__list">
-          {DIFERENCIAIS.map((d) => (
+          {DIFERENCIAIS.map((d, i) => (
             <li key={d.title}>
-              <h3>{d.title}</h3>
-              <p>{d.text}</p>
+              <span className="about__badge" aria-hidden="true">{i + 1}</span>
+              <div>
+                <h3>{d.title}</h3>
+                <p>{d.text}</p>
+              </div>
             </li>
           ))}
         </ul>

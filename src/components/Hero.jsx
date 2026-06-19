@@ -1,15 +1,19 @@
 import { WHATSAPP_LINK } from '../config';
+import Divider from './Divider';
 import './Hero.css';
 
 export default function Hero() {
   return (
     <section className="hero" id="top">
+      <div className="hero__blob hero__blob--gold" aria-hidden="true"></div>
+      <div className="hero__blob hero__blob--rose" aria-hidden="true"></div>
+
       <div className="container hero__inner">
         <div className="hero__copy">
           <p className="eyebrow">Cabeceiras &amp; colchões sob medida</p>
           <h1 className="hero__title">
             Conforto que se sente<br />
-            <em>antes de encostar.</em>
+            <em className="gradient-text">antes de encostar.</em>
           </h1>
           <p className="hero__lead">
             Conjuntos de cabeceira e cama com camadas pensadas para cada
@@ -32,25 +36,20 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual" aria-hidden="true">
-          <div className="strata-stack">
-            <div className="strata-stack__layer strata-stack__layer--top">
-              <span>Acabamento em tecido nobre</span>
-            </div>
-            <div className="strata-stack__layer strata-stack__layer--mid">
-              <span>Espuma viscoelástica</span>
-            </div>
-            <div className="strata-stack__layer strata-stack__layer--base">
-              <span>Molas ensacadas / núcleo</span>
-            </div>
+          <div className="float-card float-card--back"></div>
+          <div className="float-card float-card--mid">
+            <span className="float-card__label">Molas ensacadas</span>
+            <span className="float-card__big gradient-text">220</span>
+            <span className="float-card__sub">unidades / m²</span>
+          </div>
+          <div className="float-card float-card--front glass-card">
+            <span className="float-card__label">Linha mais pedida</span>
+            <span className="float-card__name">Dubai Premium</span>
           </div>
         </div>
       </div>
 
-      <div className="strata" aria-hidden="true">
-        <span className="l1"></span>
-        <span className="l2"></span>
-        <span className="l3"></span>
-      </div>
+      <Divider />
     </section>
   );
 }
